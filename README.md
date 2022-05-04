@@ -18,7 +18,7 @@ This project concentrates on solving a unsolved Rubik's Cube. The program contai
 	$ python3 main.py
 	```
 	
-Video de referencia:
+Video de referencia:<br>
 No tiene buena calidad xd 
 [![Watch the video](https://img.youtube.com/vi/7dYNsFPmbRQ/sddefault.jpg)](https://youtu.be/7dYNsFPmbRQ)
 
