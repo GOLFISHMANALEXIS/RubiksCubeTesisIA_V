@@ -27,7 +27,7 @@ def rotate_ccw(face):
     return final
 
 def right_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: R Clockwise")
+    print("Siguiente movimiento: R en el sentido de las agujas del reloj")
     temp = np.copy(front_face)
     front_face[0, 2] = down_face[0, 2]
     front_face[0, 5] = down_face[0, 5]
@@ -50,7 +50,7 @@ def right_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -67,7 +67,7 @@ def right_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[8]
@@ -77,13 +77,13 @@ def right_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 0), 7, tipLength = 0.2)
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def right_ccw(video, videoWriter, up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: R CounterClockwise")
+    print("Siguiente movimiento: R en sentido contrario a las agujas del reloj")
     temp = np.copy(front_face)
     front_face[0, 2] = up_face[0, 2]
     front_face[0, 5] = up_face[0, 5]
@@ -106,7 +106,7 @@ def right_ccw(video, videoWriter, up_face,right_face,front_face,down_face,left_f
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -123,7 +123,7 @@ def right_ccw(video, videoWriter, up_face,right_face,front_face,down_face,left_f
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[2]
@@ -133,13 +133,13 @@ def right_ccw(video, videoWriter, up_face,right_face,front_face,down_face,left_f
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 0), 7, tipLength = 0.2)
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def left_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: L Clockwise")
+    print("Siguiente movimiento: L en el sentido de las agujas del reloj")
     temp = np.copy(front_face)
     front_face[0, 0] = up_face[0, 0]
     front_face[0, 3] = up_face[0, 3]
@@ -162,7 +162,7 @@ def left_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -179,7 +179,7 @@ def left_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[0]
@@ -195,7 +195,7 @@ def left_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,
             break
 
 def left_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: L CounterClockwise")
+    print("Siguiente movimiento: L en sentido contrario a las agujas del reloj")
     temp = np.copy(front_face)
     front_face[0, 0] = down_face[0, 0]
     front_face[0, 3] = down_face[0, 3]
@@ -218,7 +218,7 @@ def left_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -235,7 +235,7 @@ def left_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[6]
@@ -245,14 +245,14 @@ def left_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 0), 7, tipLength = 0.2)
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def front_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
     print(front_face)
-    print("Next Move: F Clockwise")
+    print("Siguiente movimiento: F en el sentido de las agujas del reloj")
     temp1 = np.copy(front_face)
     temp = np.copy(up_face)
     front_face = rotate_cw(front_face)
@@ -284,7 +284,7 @@ def front_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -301,7 +301,7 @@ def front_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp1) == True:
                     centroid1 = blob_colors[8]
@@ -325,13 +325,13 @@ def front_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
                     cv2.arrowedLine(bgr_image_input, point5, point6, (0, 0, 255), 4, tipLength=0.2)
                     cv2.arrowedLine(bgr_image_input, point7, point8, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def front_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: F CounterClockwise")
+    print("Siguiente movimiento: F en sentido contrario a las agujas del reloj")
     temp = np.copy(up_face)
     temp1 = np.copy(front_face)
     front_face = rotate_ccw(front_face)
@@ -362,7 +362,7 @@ def front_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_fac
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -379,7 +379,7 @@ def front_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_fac
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp1) == True:
                     centroid1 = blob_colors[2]
@@ -403,13 +403,13 @@ def front_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_fac
                     cv2.arrowedLine(bgr_image_input, point5, point6, (0, 0, 255), 4, tipLength=0.2)
                     cv2.arrowedLine(bgr_image_input, point7, point8, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def back_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: B Clockwise")
+    print("Siguiente movimiento: B en el sentido de las agujas del reloj")
     temp = np.copy(up_face)
     up_face[0, 0] = right_face[0, 2]
     up_face[0, 1] = right_face[0, 5]
@@ -432,7 +432,7 @@ def back_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -449,16 +449,16 @@ def back_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def back_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: B CounterClockwise")
+    print("Siguiente movimiento: B en sentido contrario a las agujas del reloj")
     temp = np.copy(up_face)
     up_face[0, 2] = left_face[0, 0]
     up_face[0, 1] = left_face[0, 3]
@@ -481,7 +481,7 @@ def back_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -498,16 +498,16 @@ def back_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def up_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: U Clockwise")
+    print("Siguiente movimiento: U en el sentido de las agujas del reloj")
     temp = np.copy(front_face)
     front_face[0, 0] = right_face[0, 0]
     front_face[0, 1] = right_face[0, 1]
@@ -530,7 +530,7 @@ def up_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,ba
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -547,7 +547,7 @@ def up_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,ba
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[2]
@@ -557,13 +557,13 @@ def up_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,ba
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 0), 7, tipLength = 0.2)
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def up_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: U CounterClockwise")
+    print("Siguiente movimiento: U en sentido contrario a las agujas del reloj")
     temp = np.copy(front_face)
     front_face[0, 0] = left_face[0, 0]
     front_face[0, 1] = left_face[0, 1]
@@ -586,7 +586,7 @@ def up_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,b
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -603,7 +603,7 @@ def up_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,b
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[0]
@@ -613,13 +613,13 @@ def up_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,b
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 0), 7, tipLength = 0.2)
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def down_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: D Clockwise")
+    print("Siguiente movimiento: D en el sentido de las agujas del reloj")
     temp = np.copy(front_face)
     front_face[0, 6] = left_face[0, 6]
     front_face[0, 7] = left_face[0, 7]
@@ -642,7 +642,7 @@ def down_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -659,7 +659,7 @@ def down_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[6]
@@ -669,13 +669,13 @@ def down_cw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 0), 7, tipLength = 0.2)
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def down_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: D CounterClockwise")
+    print("Siguiente movimiento: D en sentido contrario a las agujas del reloj")
     temp = np.copy(front_face)
     front_face[0, 6] = right_face[0, 6]
     front_face[0, 7] = right_face[0, 7]
@@ -698,7 +698,7 @@ def down_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -715,7 +715,7 @@ def down_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[8]
@@ -725,13 +725,13 @@ def down_ccw(video,videoWriter,up_face,right_face,front_face,down_face,left_face
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 0), 7, tipLength = 0.2)
                     cv2.arrowedLine(bgr_image_input, point1, point2, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def turn_to_right(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: Show Right Face")
+    print("Siguiente movimiento: mostrar la cara derecha")
     temp = np.copy(front_face)
     front_face = np.copy(right_face)
     right_face = np.copy(back_face)
@@ -747,7 +747,7 @@ def turn_to_right(video,videoWriter,up_face,right_face,front_face,down_face,left
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -764,7 +764,7 @@ def turn_to_right(video,videoWriter,up_face,right_face,front_face,down_face,left
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[8]
@@ -786,13 +786,13 @@ def turn_to_right(video,videoWriter,up_face,right_face,front_face,down_face,left
                     cv2.arrowedLine(bgr_image_input, point3, point4, (0, 0, 255), 4, tipLength=0.2)
                     cv2.arrowedLine(bgr_image_input, point5, point6, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
 
 def turn_to_front(video,videoWriter,up_face,right_face,front_face,down_face,left_face,back_face):
-    print("Next Move: Show Front Face")
+    print("Siguiente movimiento: mostrar la cara frontal")
     temp = np.copy(front_face)
     front_face = np.copy(left_face)
     left_face = np.copy(back_face)
@@ -808,7 +808,7 @@ def turn_to_front(video,videoWriter,up_face,right_face,front_face,down_face,left
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
         face, blob_colors = detect_face(bgr_image_input)
@@ -825,7 +825,7 @@ def turn_to_front(video,videoWriter,up_face,right_face,front_face,down_face,left
                 detected_face = np.asarray(detected_face)
                 faces = []
                 if np.array_equal(detected_face, front_face) == True:
-                    print("MOVE MADE")
+                    print("MOVIMIENTO REALIZADO")
                     return up_face,right_face,front_face,down_face,left_face,back_face
                 elif np.array_equal(detected_face,temp) == True:
                     centroid1 = blob_colors[6]
@@ -847,7 +847,7 @@ def turn_to_front(video,videoWriter,up_face,right_face,front_face,down_face,left
                     cv2.arrowedLine(bgr_image_input, point3, point4, (0, 0, 255), 4, tipLength=0.2)
                     cv2.arrowedLine(bgr_image_input, point5, point6, (0, 0, 255), 4, tipLength=0.2)
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break

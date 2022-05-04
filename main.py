@@ -109,7 +109,7 @@ def find_face(video,videoWriter,uf,rf,ff,df,lf,bf,text = ""):
         is_ok, bgr_image_input = video.read()
 
         if not is_ok:
-            print("Cannot read video source")
+            print("No se puede leer la fuente de video")
             sys.exit()
 
 
@@ -133,7 +133,7 @@ def find_face(video,videoWriter,uf,rf,ff,df,lf,bf,text = ""):
                 if np.array_equal(detected_face, uf) == False and np.array_equal(detected_face, ff) == False and np.array_equal(detected_face, bf) == False and np.array_equal(detected_face, df) == False and np.array_equal(detected_face, lf) == False and np.array_equal(detected_face, rf) == False:
                     return detected_face
         videoWriter.write(bgr_image_input)
-        cv2.imshow("Output Image", bgr_image_input)
+        cv2.imshow("Imagen de salida", bgr_image_input)
         key_pressed = cv2.waitKey(1) & 0xFF
         if key_pressed == 27 or key_pressed == ord('q'):
             break
@@ -152,7 +152,7 @@ def main():
     
 
     if not is_ok:
-        print("Cannot read video source")
+        print("No se puede leer la fuente de video")
         sys.exit()
 
     h1 = bgr_image_input.shape[0]
@@ -165,7 +165,7 @@ def main():
         fps = 20.0
         videoWriter = cv2.VideoWriter(fname, fourcc, fps, (w1, h1))
     except:
-        print("Error: can't create output video: %s" % fname)
+        print("Error: no se puede crear el video de salida: %s" % fname)
         sys.exit()
     
     while True:

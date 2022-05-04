@@ -3,7 +3,7 @@ This project concentrates on solving a unsolved Rubik's Cube. The program contai
 
 1.  Clone the repository
 	```
-	$ git clone https://github.com/VickneshB/RubiksCube
+	$ git clone https://github.com/GOLFISHMANALEXIS/RubiksCubeTesisIA_V.git
 	```
 2.  Create an virtual environment using
 	```
@@ -18,7 +18,9 @@ This project concentrates on solving a unsolved Rubik's Cube. The program contai
 	$ python3 main.py
 	```
 	
-Click below for a sample VIDEO:
-
-
+Video de referencia:
+No tiene buena calidad xd 
 [![Watch the video](https://img.youtube.com/vi/7dYNsFPmbRQ/sddefault.jpg)](https://youtu.be/7dYNsFPmbRQ)
+
+
+# RubiksCubeTesisIA_V

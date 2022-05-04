@@ -1,0 +1,6 @@
+* abrir el cmd y ejecutar para instalar cada libreria
+
+opencv-python = pip install opencv-contrib-python
+kociemba =  pip install kociemba
+numpy =  pip install numpy
+scipy =  pip install scipy
